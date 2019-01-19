@@ -1,0 +1,11 @@
+/_build
+/.mirage.config
+/Makefile
+/key_gen.ml
+/main.ml
+/myocamlbuild.ml
+/presentation_server
+/_opam
+*.opam
+*.native
+/site/**/*.html

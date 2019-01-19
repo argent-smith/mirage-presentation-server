@@ -1,0 +1,13 @@
+S .
+B _build
+PKG findlib
+PKG mirage
+PKG functoria
+PKG cohttp
+PKG cohttp-lwt
+PKG cohttp-mirage
+PKG mirage-types
+PKG mirage-types-lwt
+PKG functoria
+PKG lwt
+PKG lwt.ppx
