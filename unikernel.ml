@@ -1,3 +1,4 @@
+open Lwt
 open Lwt.Infix
 
 (** HTTP server module type *)
@@ -16,13 +17,10 @@ module Dispatch
   let failf fmt = Fmt.kstrf Lwt.fail_with fmt
 
   (* Whole file reader *)
-  let read_whole_file fs name =
-    FS.size fs name >>= function
-    | Error e -> failf "size: %a" FS.pp_error e
-    | Ok size ->
-       FS.read fs name 0L size >>= function
-       | Error e -> failf "read: %a" FS.pp_error e
-       | Ok bufs -> Cstruct.copyv bufs |> Lwt.return
+  let read_whole_file fs path =
+    FS.get fs (Mirage_kv.Key.v path) >>= function
+    | Error e -> failf "get: %a" FS.pp_error e
+    | Ok body -> return body
 
   (* URI -> response maker *)
   let rec dispatcher fs uri =
