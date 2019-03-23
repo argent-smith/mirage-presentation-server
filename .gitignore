@@ -9,3 +9,6 @@
 *.opam
 *.native
 /site/**/*.html
+_esy
+esy.lock
+node_modules

@@ -1,0 +1,19 @@
+{
+  "name": "presentation_server",
+  "version": "0.1.0",
+  "description": "Simple MirageOS static http server",
+  "license": "Unlicense",
+  "esy": {
+    "build": "mirage configure -t macosx -b #{self.target_dir}",
+    "release": { "includePackages": [ "root" ] },
+    "buildEnv": {
+      "DUNE_BUILD_DIR": "#{self.target_dir}"
+    }
+  },
+  "dependencies": {
+    "@opam/depext": "transition",
+    "@opam/mirage": "3.5.0",
+    "ocaml": "^4.7.1"
+  },
+  "devDependencies": { "@opam/merlin": "3.2.2", "ocaml": "^4.7.1" }
+}
